@@ -10,11 +10,6 @@ import java.io.IOException;
 
 @WebServlet(name= "todoRegisterController" , urlPatterns = "/todo/register")
 public class TodoRegisterController extends HttpServlet {
-    @Override
-    protected void doPost(HttpServletRequest req , HttpServletResponse resp) throws ServletException , IOException {
-
-        System.out.println("입력을 처리하고 목록페이지로 이동");
-    }
 
     @Override
     protected void doGet(HttpServletRequest req , HttpServletResponse resp) throws ServletException , IOException {
@@ -26,5 +21,13 @@ public class TodoRegisterController extends HttpServlet {
         dispatcher.forward(req,resp);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req , HttpServletResponse resp) throws ServletException , IOException {
+
+        System.out.println("입력을 처리하고 목록페이지로 이동");
+
+        //브라우저가 호출해야하는 주소
+        resp.sendRedirect("/todo/list");
+    }
 
 }
